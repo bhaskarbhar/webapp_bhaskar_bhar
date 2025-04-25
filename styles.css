@@ -136,7 +136,6 @@ h2 {
     width: 80%;
     padding: 25px;
     height: 300px;
-    border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: float 2s ease-in-out infinite;
