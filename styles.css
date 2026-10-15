@@ -228,6 +228,89 @@ a {
   width: 100%;
 }
 
+.btn:focus-visible,
+.resume-modal-close:focus-visible {
+  outline: 3px solid var(--blue-border);
+  outline-offset: 2px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.resume-modal[hidden] {
+  display: none;
+}
+
+.resume-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.resume-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.resume-modal-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 900px);
+  height: min(90vh, 900px);
+  overflow: hidden;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.resume-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.resume-modal-header h2 {
+  color: var(--text-heading);
+  font-size: 1rem;
+}
+
+.resume-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-heading);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.resume-modal-close:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.resume-modal-content iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+}
+
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -1182,6 +1265,14 @@ code {
 }
 
 @media (max-width: 680px) {
+  .resume-modal {
+    padding: 10px;
+  }
+
+  .resume-modal-content {
+    height: 94vh;
+  }
+
   .header-container {
     height: 60px;
   }
