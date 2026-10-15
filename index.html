@@ -103,14 +103,15 @@
           </div>
 
           <div class="resume-actions" aria-label="Resume actions">
-            <button type="button" class="btn btn-outline" id="previewResume" aria-haspopup="dialog">
+            <a href="https://drive.google.com/file/d/1SFsSRH8j0gCpJH7zBJmV3sWBOqpU5GcK/view?usp=sharing"
+              target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Preview resume on Google Drive">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"></path>
                 <circle cx="12" cy="12" r="2.5"></circle>
               </svg>
               <span>Preview Resume</span>
-            </button>
+            </a>
             <a href="resume.pdf" download="Bhaskar-Bhar-Resume.pdf" class="btn btn-primary"
               aria-label="Download resume as PDF">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -646,20 +647,6 @@
     </section>
   </main>
 
-  <div class="resume-modal" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle"
-    hidden>
-    <div class="resume-modal-backdrop" data-close-resume-modal></div>
-    <div class="resume-modal-content">
-      <div class="resume-modal-header">
-        <h2 id="resumeModalTitle">Resume Preview</h2>
-        <button type="button" class="resume-modal-close" id="closeResumePreview" aria-label="Close resume preview">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <iframe src="resume.pdf" title="Bhaskar Bhar resume preview"></iframe>
-    </div>
-  </div>
-
   <script>
     // Mobile navigation toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -679,33 +666,6 @@
       });
     }
 
-    // Resume preview modal keeps the PDF embedded on mobile instead of triggering a download.
-    const previewResume = document.getElementById('previewResume');
-    const resumeModal = document.getElementById('resumeModal');
-    const closeResumePreview = document.getElementById('closeResumePreview');
-
-    const closeResumeModal = () => {
-      resumeModal.hidden = true;
-      document.body.classList.remove('modal-open');
-      previewResume.focus();
-    };
-
-    if (previewResume && resumeModal && closeResumePreview) {
-      previewResume.addEventListener('click', () => {
-        resumeModal.hidden = false;
-        document.body.classList.add('modal-open');
-        closeResumePreview.focus();
-      });
-
-      closeResumePreview.addEventListener('click', closeResumeModal);
-      resumeModal.querySelector('[data-close-resume-modal]').addEventListener('click', closeResumeModal);
-
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && !resumeModal.hidden) {
-          closeResumeModal();
-        }
-      });
-    }
   </script>
 </body>
 
